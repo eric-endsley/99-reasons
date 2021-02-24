@@ -1,1 +1,1 @@
-This project contains the React help queue project from learnhowtoprogram.com/react. It has all the code through the first three weeks of the React course. You can use this repo to work on the help queue starting in Week 4 (React with NoSQL).
+There are AT LEAST 99 reasons to drink better coffee than pod-style coffee. Here's a list of 'em
