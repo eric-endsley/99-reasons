@@ -1,17 +1,21 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
+import { useFirestore } from 'react-redux-firebase';
 
 function EditReasonForm (props) {
+  const firestore = useFirestore();
   const { reason } = props;
 
   function handleEditReasonFormSubmission(event) {
     event.preventDefault();
-    props.onEditReason({
+    props.onEditReason();
+    const propertiesToUpdate = {  
       name: event.target.name.value, 
       logic: event.target.logic.value, 
       solution: event.target.solution.value, 
-      id: reason.id });
+    }
+    return firestore.update({collectin: 'reasons', doc: reason.id }, propertiesToUpdate)
   }
 
   return (

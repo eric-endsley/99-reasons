@@ -9,19 +9,6 @@ export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });
 
-export const addReason = (reason) => {
-  const { name, logic, solution, id } = reason;
-  return {
-    type: c.ADD_REASON,
-    name,
-    logic,
-    solution,
-    id: id,
-    // formattedWaitTime,
-    // timeOpen: timeOpen
-  }
-}
-
 export const updateTime = (id, formattedWaitTime) => ({
   type: c.UPDATE_TIME,
   id: id,

@@ -1,28 +1,33 @@
 import React from "react";
-import { v4 } from 'uuid';
 import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
+// import { v4 } from 'uuid';
 // import Moment from 'moment';
+import { useFirestore } from 'react-redux-firebase';
 
 function NewReasonForm(props){
 
-  function handleNewReasonFormSubmission(event) {
+  const firestore = useFirestore();
+
+  function addReasonToFirestore(event) {
     event.preventDefault();
-    props.onNewReasonCreation({
+    props.onNewReasonCreation();
+    return firestore.collection('reasons').add(
+      {
       name: event.target.name.value,
       logic: event.target.logic.value,
-      solution: event.target.solution.value,
-      id: v4(),
+      solution: event.target.solution.value
       // timeOpen: new Moment(),
       // formattedWaitTime: new Moment().fromNow(true)
-    });
+      }
+    );
   }
 
   return (
     <React.Fragment>
       <ReusableForm 
-        formSubmissionHandler={handleNewReasonFormSubmission}
-        buttonText="Help!" />
+        formSubmissionHandler={addReasonToFirestore}
+        buttonText="add reason!" />
     </React.Fragment>
   );
 }
@@ -32,7 +37,3 @@ NewReasonForm.propTypes = {
 };
 
 export default NewReasonForm;
-
-// names: name
-// location: logic
-// issue: solution

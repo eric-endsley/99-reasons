@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 function Reason(props){
   return (
     <React.Fragment>
-      <div onClick = {() => props.whenReasonClicked(props.id)}>
+      <div onClick = {() => props.whenReasonClicked(props.id, props.num)}>
         <h3>{props.logic} - {props.name}</h3>
         <p><em>{props.solution}</em></p>
+        <p>{props.num}</p>
         {/* <p><em>{props.formattedWaitTime}</em></p> */}
       </div>
       <hr/>
@@ -18,7 +19,8 @@ Reason.propTypes = {
   name: PropTypes.string,
   logic: PropTypes.string,
   solution: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  num: PropTypes.number
   // formattedWaitTime: PropTypes.string,
   // whenReasonClicked: PropTypes.func
 };

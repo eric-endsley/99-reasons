@@ -6,7 +6,7 @@ function ReasonDetail(props){
   
   return (
     <React.Fragment>
-      <h1>Reason Detail</h1>
+      <h1>Reason #{reason.num}</h1>
       <h3>{reason.logic} - {reason.location}</h3>
       <p><em>{reason.solution}</em></p>
       <button onClick={ props.onClickingEdit }>Update Reason</button>
@@ -22,4 +22,4 @@ ReasonDetail.propTypes = {
   onClickingEdit: PropTypes.func
 };
 
-export default ReasonDetail;
+export default ReasonDetail; 
